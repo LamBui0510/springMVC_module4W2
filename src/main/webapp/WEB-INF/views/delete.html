@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+
+    <form  method="post" th:object="${staff}">
+        <table class="table table-dark">
+            <tbody>
+            <tr>
+                <p>You really want to?</p>
+                <h2 th:text="*{name}"></h2>
+                <p>staff-code</p>
+                <h3 th:text="*{staff_code}"></h3>
+            </tr>
+            <td><button type="submit" class="btn btn-danger">enter Delete</button></td>
+            <td><button type="button" class="btn btn-success"><a href="/staffs">Back to Home</a></button></td>
+
+            </tbody>
+        </table>
+    </form>
+
+</div>
+</body>
+</html>

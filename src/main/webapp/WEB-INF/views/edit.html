@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  method="post" th:object="${staffs}">
+
+    <input type="text" th:field="*{name}" >
+    <input type="text" th:field="*{age}" >
+    <td><input type="text" th:field="*{salary}" ></td>
+    <select name="idBranch">
+        <option th:each="c : ${branch}" th:text="${c.name}" th:value="${c.id}"> </option>
+    </select>
+
+    <button type="submit" class="bubble-legend-symbol">EDIT</button>
+</form>
+
+</body>
+</html>

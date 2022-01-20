@@ -1,15 +1,25 @@
 package lambui.model;
 
+import org.springframework.lang.NonNull;
+
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Staff {
-
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty(message = "Plz enter your name")
+    @Size(max = 23, min = 2, message = "min 2 max 23")
     private String name;
+    @NotEmpty(message = "Not null")
     private String staff_code;
+    @Min(value = 18, message = "chua du 18t")
+    @Max(value = 65, message = "qua tuoi lao dong roi, nghi huu thoi")
     private int age;
     private double salary;
     @ManyToOne

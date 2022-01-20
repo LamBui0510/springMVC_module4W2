@@ -28,6 +28,8 @@
         <th>Name</th>
         <th><a th:href="@{/sortAge}" onclick="count();">Age </a></th>
         <th>Salary</th>
+        <th>Code</th>
+
         <th>Branch</th>
     </tr>
     <tr th:each="s,loop :${staffs}">
@@ -35,11 +37,24 @@
         <td> <a th:href="@{/detail(id=${s.id})}"><p th:text="${s.name}"></p> </a></td>
         <td th:text="${s.age}"></td>
         <td th:text="${s.salary}"></td>
+        <td th:text="${s.staff_code}"></td>
         <td th:text="${s.branch.name}"></td>
         <td> <button><a th:href="@{/edit(id=${s.id})}">EDIT</a>  </button></td>
         <td> <button><a th:href="@{/delete(id=${s.id})}">DELETE</a>  </button></td>
 
     </tr>
+
 </table>
+<div class="container">
+    <ul class="pagination">
+        <li th:if="${staffs.hasPrevious()}" class="page-item"><a class="page-link" th:href="@{/staffs(page=${staffs.number}-1)}">previous</a></li>
+        <li class="page-item active"><a class="page-link" href="/staffs?page=0">1</a></li>
+        <li class="page-item"><a class="page-link" href="/staffs?page=1">2</a></li>
+        <li class="page-item"><a class="page-link" href="/staffs?page=2">3</a></li>
+        <li class="page-item"><a class="page-link" href="/staffs?page=3">4</a></li>
+        <li class="page-item"><a class="page-link" href="/staffs?page=4">5</a></li>
+        <li th:if="${staffs.hasNext()}" class="page-item"><a class="page-link" th:href="@{/staffs(page=${staffs.number}+1)}">next</a></li>
+    </ul>
+</div>
 </body>
 </html>

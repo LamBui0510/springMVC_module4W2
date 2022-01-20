@@ -6,16 +6,23 @@
 </head>
 <body>
 <form  method="post" th:object="${staffs}">
-
-    <input type="text" th:field="*{name}" >
+<table>
+   <tr> <input type="text" th:field="*{name}" >
     <input type="text" th:field="*{age}" >
-    <td><input type="text" th:field="*{salary}" ></td>
-    <select name="idBranch">
+    <input type="text" th:field="*{staff_code}" >
+    <input type="text" th:field="*{salary}" >
+    <select th:field="*{branch}">
         <option th:each="c : ${branch}" th:text="${c.name}" th:value="${c.id}"> </option>
     </select>
-
     <button type="submit" class="bubble-legend-symbol">EDIT</button>
-</form>
+   </tr>
 
+<tr>
+    <td style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+    <td style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></td>
+    <td style="color: red" th:if="${#fields.hasErrors('staff_code')}" th:errors="*{staff_code}"></td>
+</tr>
+</table>
+</form>
 </body>
 </html>
